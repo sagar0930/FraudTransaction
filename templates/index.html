@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200vh;
+    }
+
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    input[type="text"] {
+      width: calc(100% - 24px);
+      padding: 12px;
+      margin-top: 6px;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      margin-top: 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+
+    .prediction {
+      margin-top: 20px;
+      font-size: 16px;
+      background-color: #e1f5fe;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="login">
+      <h1>Transaction Prediction</h1>
+
+      <form action="/predict" method="post">
+
+      
+        <label for="amount">Amount:</label>
+        <input type="text" id="amount" name="amount">
+        
+        <label for="oldbalanceOrg">Old Balance Origin:</label>
+        <input type="text" id="oldbalanceOrg" name="oldbalanceOrg">
+        
+        <label for="newbalanceOrig">New Balance Origin:</label>
+        <input type="text" id="newbalanceOrig" name="newbalanceOrig">
+        
+        <label for="oldbalanceDest">Old Balance Destination:</label>
+        <input type="text" id="oldbalanceDest" name="oldbalanceDest">
+        
+        <label for="newbalanceDest">New Balance Destination:</label>
+        <input type="text" id="newbalanceDest" name="newbalanceDest">
+        
+        <label for="isFlaggedFraud">Is Flagged Fraud:</label>
+        <input type="text" id="isFlaggedFraud" name="isFlaggedFraud">
+        
+        <label for="CASH_OUT">CASH OUT:</label>
+        <input type="text" id="CASH_OUT" name="CASH_OUT">
+
+        <label for="DEBIT">DEBIT:</label>
+        <input type="text" id="DEBIT" name="DEBIT">
+        
+        <label for="NOTYPE">NOTYPE:</label>
+        <input type="text" id="NOTYPE" name="NOTYPE">
+        
+        <label for="PAYMENT">PAYMENT:</label>
+        <input type="text" id="PAYMENT" name="PAYMENT">
+
+        <label for="TRANSFER">TRANSFER:</label>
+        <input type="text" id="TRANSFER" name="TRANSFER">
+        
+        <button type="submit">Predict</button>
+      </form>
+
+      <div class="prediction">
+        {% if prediction_text %}
+        {{ prediction_text }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
